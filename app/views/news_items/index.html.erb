@@ -22,6 +22,15 @@
         <td><%= link_to 'Edit', edit_news_item_path(news_item) %></td>
         <td><%= link_to 'Destroy', news_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <h1>News!</h1>
+        <% @news_items.each do |news_item| %>
+            <a href="<%= news_item_path news_item%>" class="summary">
+              <%= image_tag(news_item.image.thumbnail.url, :class => "thumbnail inline") %>
+              <h2><%= news_item.title %></h2>
+              <h3><%= news_item.sub_header %></h3>
+            </a>
+        <% end %>
+
     <% end %>
   </tbody>
 </table>
